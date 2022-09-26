@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - APP_PORT=${APP_PORT}
+    image: vuno/${DOCKER_NAME}:${VERSION}
+    container_name: ${DOCKER_NAME}
+    working_dir: /app
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    volumes:
+      - ../:/app
+    command: python main.py
+    env_file: ${PWD}/.env
+    environment:
+      - TZ=Asia/Seoul
+    networks:
+     - sample_default
+    depends_on:
+     db:
+       condition: service_healthy  # healthcheck
+    stdin_open: true  # docker run -i (interactive)
+    tty: true  # docker run -t (tty)
+
+  db:
+    image: postgres:12.9
+    container_name: sample-db
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PWD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
+      interval: 10s
+    ports:
+      - 5434:5432
+    volumes:
+      - ../../../volumes_pmw/pgdbdata:/var/lib/postgresql/data
+      - ../etc/database/base.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - sample_default
+
+networks:
+  sample_default:
+   external: true
