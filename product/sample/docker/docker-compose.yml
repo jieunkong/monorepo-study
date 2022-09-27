@@ -14,6 +14,8 @@ services:
       - ${APP_PORT}:${APP_PORT}
     volumes:
       - ../:/app
+      - ../../../core:/app/core
+      - ../../../common:/app/common
     command: python main.py
     env_file: ${PWD}/.env
     environment:

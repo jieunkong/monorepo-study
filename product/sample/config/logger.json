@@ -1,0 +1,12 @@
+{
+    "handlers": {
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": "run.log"
+        }
+    },
+    "root": {
+        "handlers": ["default", "file"],
+        "level": "INFO"
+    }
+}

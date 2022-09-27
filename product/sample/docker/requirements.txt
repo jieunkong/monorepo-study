@@ -13,6 +13,7 @@ itsdangerous==2.1.2
 Jinja2==3.1.2
 MarkupSafe==2.1.1
 orjson==3.8.0
+psycopg2==2.9.3
 pydantic==1.10.2
 python-dotenv==0.21.0
 python-multipart==0.0.5
@@ -22,6 +23,7 @@ six==1.16.0
 sniffio==1.3.0
 SQLAlchemy==1.4.41
 starlette==0.20.4
+teams-logger==0.4.1
 typing_extensions==4.3.0
 ujson==5.5.0
 urllib3==1.26.12
