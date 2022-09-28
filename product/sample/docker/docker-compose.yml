@@ -30,7 +30,7 @@ services:
 
   db:
     image: postgres:12.9
-    container_name: sample-db
+    container_name: ${DOCKER_NAME}-db
     restart: always
     environment:
       POSTGRES_DB: ${DB_NAME}
@@ -43,7 +43,7 @@ services:
       - 5434:5432
     volumes:
       - ../../../volumes_pmw/pgdbdata:/var/lib/postgresql/data
-      - ../etc/database/base.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ../etc/database/base.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - sample_default
 

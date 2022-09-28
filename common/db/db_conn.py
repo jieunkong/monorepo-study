@@ -22,7 +22,6 @@ class SQLAlchemy:
                 - DB Connection
         """
         database_url = kwargs.get("DB_URL")
-        print('database_url: ', database_url)
         database_url = database_url.format(
                             kwargs.get("DB_USER"),
                             kwargs.get("DB_PWD"),
