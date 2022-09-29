@@ -6,7 +6,7 @@
         }
     },
     "root": {
-        "handlers": ["default", "file"],
+        "handlers": ["file"],
         "level": "INFO"
     }
 }

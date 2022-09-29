@@ -1,7 +1,7 @@
+import os
 import logging.config
 import logging
 from teams_logger import Office365CardFormatter
-import os
 
 
 class Level:
@@ -60,10 +60,10 @@ class DefaultConfig(object):
                 }
             },
             # root hander로 인하여 log가 두번 찍히는 현상이 발생하여 주석
-            # 'root': {
-            #     'handlers': DefaultConfig.Root.handlers,
-            #     'level': DefaultConfig.Root.level
-            # },
+            'root': {
+                'handlers': DefaultConfig.Root.handlers,
+                'level': DefaultConfig.Root.level
+            },
             'loggers': {
                 __name__: {
                     "handlers": [DefaultConfig.Handler.name],
@@ -197,7 +197,7 @@ class Logger(object):
         default_config = DefaultConfig.get_config()
         default_config["formatters"].update(set_handler(formatters))
         default_config["handlers"].update(set_handler(handlers))
-        # default_config["root"].update(root)
+        default_config["root"].update(root)
         default_config["loggers"].update(set_handler(loggers))
         cls.dict_config(default_config)
 
