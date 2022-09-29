@@ -9,26 +9,30 @@ from .routers import api_router
 
 
 def create_app():
+    """
+    1. FastAPI app setting
+        1.1 on_event("startup")
+            앱 시작 전에 수행되어야할 로직 선언
+        1.2 on_event("shutdown") 
+            앱이 종료되면 수행되어야할 로직 선언
+    2. logger setting 
+    3. db setting
+    """
     app = FastAPI()
     app.include_router(api_router)
-
-    # key = AppConfig().JWT_SECRET_KEY
-    # dsn = AppConfig().SENTRY_DSN
-
-    # app.add_middleware(AuthenticationMiddleware, backend=AuthBackend(key))
-    # if dsn:
-    #     app.add_middleware(SentryMiddleware, dsn=dsn)
 
     app_pwd = AppConfig().BASE_DIR
     app_name = AppConfig().APP_NAME
 
     # logger setting
-    logger = create_logger(app_pwd, app_name, "logger.json")
-
+    # logger = create_logger(app_pwd, app_name, "logger.json")
+    logger = Logger.get_logger(app_name + "-logger") 
+    logger.info("logger connected!!")
+    
     # Init DB
     db.init_db(app, app_name, **AppConfig().to_dict())
 
-    @app.on_event("startup")
+    @app.on_event("startup") 
     def __db_start():
         try:
             db.get_engine.connect()
