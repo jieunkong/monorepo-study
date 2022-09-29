@@ -1,21 +1,30 @@
-
-from pydantic import BaseSettings
-# from os import getenv
+from os import getenv
 from pathlib import Path
-
-# from core.utilities.singleton import Singleton
-
-
-# class FinalMeta(type(BaseSettings), Singleton): ...
+from pydantic import BaseSettings
+from core.utils.singleton import Singleton
 
 
-class AppConfig(BaseSettings): #, metaclass=FinalMeta):
-    BASE_DIR: Path = Path.cwd() #'/Users/vuno/Project/backend-monorepo/product/sample'
-    print('BASE_DIR: ', BASE_DIR)
-    APP_NAME: str = 'boneage'
+class FinalMeta(type(BaseSettings), Singleton): 
+    """
+    metaclass를 다중상속 받을 수 없어서, 두 타입을 모두 상속받기 위한 우회방법 구현법
+    * metaclass?
+        - 클래스를 만드는 클래스
+        - 클래스가 type을 상속받으면 메타글래스가 된다.
+    """
+    ...
+    
 
-    #DEBUG_MODE: bool = getenv('DEBUG_MODE', True)
-    #APP_PORT: int = int(getenv('APP_PORT', 5000))
+class AppConfig(BaseSettings, metaclass=FinalMeta):
+    """
+        ./docker/.env 파일 읽어와서 환경설정값 셋팅하는 클래스
+        * os.getenv() ?
+            - python environment 값을 가져오는 함수
+    """
+    BASE_DIR: Path = Path.cwd()
+    APP_NAME: str = None
+
+    # DEBUG_MODE: bool = getenv('DEBUG_MODE')  # 사용상황 궁금
+    APP_PORT: int = None
 
     # DB 정보
     DB_IP: str = None
@@ -26,21 +35,15 @@ class AppConfig(BaseSettings): #, metaclass=FinalMeta):
     DB_URL: str = None
 
     # DB Connection Pool
-    SQLALCHEMY_POOL_SIZE: int = 5
-    SQLALCHEMY_MAX_OVERFLOW: int = 100
-    SQLALCHEMY_POOL_TIMEOUT: int = 100
-
-    SQLALCHEMY_POOL_RECYCLE: int = 300
-    SQLALCHEMY_POOL_PRE_PING: bool = True
-    SQLALCHEMY_ECHO: bool = True
-
-    # VUUC_URL: str = getenv('VUUC_URL', 'http://vuuc_app:7100')
-
-    # JWT_SECRET_KEY: str = 'OQpanlTNgcfSlpDGlvqLbGgNLQF2BeJx'
-    # SENTRY_DSN: str = ''
+    SQLALCHEMY_POOL_SIZE: int = None
+    SQLALCHEMY_MAX_OVERFLOW: int = None
+    SQLALCHEMY_POOL_TIMEOUT: int = None
+    SQLALCHEMY_POOL_RECYCLE: int = None
+    SQLALCHEMY_POOL_PRE_PING: bool = None
+    SQLALCHEMY_ECHO: bool = None
 
     class Config:
-        pass
+        env_file = './docker/.env'
 
     def to_dict(self):
         return self.__dict__
