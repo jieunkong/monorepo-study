@@ -2,8 +2,6 @@ from fastapi import FastAPI
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-# from core.logger.log4py import Logger
-# from config.app_config import AppConfig
 
 
 class SQLAlchemy:
@@ -12,7 +10,6 @@ class SQLAlchemy:
         self._session = None
         if app is not None:
             self.init_db(app=app, app_name=app_name, **kwargs)
-        # self.__logger = Logger.get_logger(AppConfig().APP_NAME + "-logger")
 
     def init_db(self, app: FastAPI, app_name: str = None, **kwargs):
         """
@@ -55,15 +52,7 @@ class SQLAlchemy:
                             autoflush=False,
                             bind=self._engine
                             )
-        # @app.on_event("startup")
-        # def startup():
-        #     self._engine.connect()
-
-        # @app.on_event("shutdown")
-        # def shutdown():
-        #     self._session.close_all()
-        #     self._engine.dispose()
-
+    
     def __get_db_session(self):
         db_session = None
         try:
@@ -76,7 +65,6 @@ class SQLAlchemy:
 
     @property
     def get_session(self):
-        # self.__logger.debug("========= pool status : {} =========".format(self._engine.pool.status()))
         return self.__get_db_session
 
     @property

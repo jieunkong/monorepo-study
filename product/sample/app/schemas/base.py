@@ -12,5 +12,6 @@ class BaseReponse(BaseModel):
     """
     response data format
     """
+    # id: int
     name: str
     

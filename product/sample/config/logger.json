@@ -7,6 +7,6 @@
     },
     "root": {
         "handlers": ["file"],
-        "level": "INFO"
+        "level": "INFO" 
     }
 }
