@@ -23,8 +23,8 @@ services:
     networks:
      - sample_default
     depends_on:
-     db:
-       condition: service_healthy  # healthcheck
+      db:
+        condition: service_healthy  # healthcheck
     stdin_open: true  # docker run -i (interactive)
     tty: true  # docker run -t (tty)
 
