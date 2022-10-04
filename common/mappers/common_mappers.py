@@ -4,6 +4,7 @@ from config.app_config import AppConfig
 
 class CommonMapper:
     def __init__(self, db_session):
+        print(3)
         self._db_session = db_session
 
         self._app_name = AppConfig().APP_NAME

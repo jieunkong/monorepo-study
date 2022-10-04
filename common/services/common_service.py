@@ -6,6 +6,7 @@ from config.app_config import AppConfig
 
 class CommonService:
     def __init__(self):
+        print(1)
         self._db_session = db.get_session()
 
         self._app_name = AppConfig().APP_NAME

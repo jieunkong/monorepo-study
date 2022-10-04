@@ -395,3 +395,66 @@ FROM sample ORDER BY sample.id
 FROM sample ORDER BY sample.id
 2022-09-30 10:41:28 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [cached since 1.1s ago] {}
 2022-09-30 10:41:28 :: INFO :: base - [1] - sqlalchemy.engine.Engine._rollback_impl(base.py:1055): ROLLBACK
+2022-10-04 10:26:43 :: INFO :: __init__ - [1] - sample-logger.create_app(__init__.py:30): logger connected!!
+2022-10-04 10:26:43 :: INFO :: server - [1] - uvicorn.error.serve(server.py:75): Started server process [1]
+2022-10-04 10:26:43 :: INFO :: on - [1] - uvicorn.error.startup(on.py:47): Waiting for application startup.
+2022-10-04 10:26:43 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): select pg_catalog.version()
+2022-10-04 10:26:43 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [raw sql] {}
+2022-10-04 10:26:43 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): select current_schema()
+2022-10-04 10:26:43 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [raw sql] {}
+2022-10-04 10:26:43 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): show standard_conforming_strings
+2022-10-04 10:26:43 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [raw sql] {}
+2022-10-04 10:26:43 :: INFO :: __init__ - [1] - sample-logger.__db_start(__init__.py:39): DB Connect!!
+2022-10-04 10:26:43 :: INFO :: on - [1] - uvicorn.error.startup(on.py:61): Application startup complete.
+2022-10-04 10:26:43 :: INFO :: server - [1] - uvicorn.error._log_started_message(server.py:207): Uvicorn running on http://0.0.0.0:5000 (Press CTRL+C to quit)
+2022-10-04 18:09:27 :: INFO :: __init__ - [1] - sample-logger.create_app(__init__.py:30): logger connected!!
+2022-10-04 18:09:27 :: INFO :: server - [1] - uvicorn.error.serve(server.py:75): Started server process [1]
+2022-10-04 18:09:27 :: INFO :: on - [1] - uvicorn.error.startup(on.py:47): Waiting for application startup.
+2022-10-04 18:09:27 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): select pg_catalog.version()
+2022-10-04 18:09:27 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [raw sql] {}
+2022-10-04 18:09:27 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): select current_schema()
+2022-10-04 18:09:27 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [raw sql] {}
+2022-10-04 18:09:27 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): show standard_conforming_strings
+2022-10-04 18:09:27 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [raw sql] {}
+2022-10-04 18:09:27 :: INFO :: __init__ - [1] - sample-logger.__db_start(__init__.py:39): DB Connect!!
+2022-10-04 18:09:27 :: INFO :: on - [1] - uvicorn.error.startup(on.py:61): Application startup complete.
+2022-10-04 18:09:27 :: INFO :: server - [1] - uvicorn.error._log_started_message(server.py:207): Uvicorn running on http://0.0.0.0:5000 (Press CTRL+C to quit)
+2022-10-04 18:10:05 :: INFO :: base - [1] - sqlalchemy.engine.Engine._begin_impl(base.py:1027): BEGIN (implicit)
+2022-10-04 18:10:05 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): SELECT sample.id AS sample_id, sample.name AS sample_name 
+FROM sample ORDER BY sample.id
+2022-10-04 18:10:05 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [generated in 0.00327s] {}
+2022-10-04 18:10:05 :: INFO :: base - [1] - sqlalchemy.engine.Engine._rollback_impl(base.py:1055): ROLLBACK
+2022-10-04 18:12:05 :: INFO :: __init__ - [1] - sample-logger.create_app(__init__.py:30): logger connected!!
+2022-10-04 18:12:05 :: INFO :: server - [1] - uvicorn.error.serve(server.py:75): Started server process [1]
+2022-10-04 18:12:05 :: INFO :: on - [1] - uvicorn.error.startup(on.py:47): Waiting for application startup.
+2022-10-04 18:12:05 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): select pg_catalog.version()
+2022-10-04 18:12:05 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [raw sql] {}
+2022-10-04 18:12:05 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): select current_schema()
+2022-10-04 18:12:05 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [raw sql] {}
+2022-10-04 18:12:05 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): show standard_conforming_strings
+2022-10-04 18:12:05 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [raw sql] {}
+2022-10-04 18:12:05 :: INFO :: __init__ - [1] - sample-logger.__db_start(__init__.py:39): DB Connect!!
+2022-10-04 18:12:05 :: INFO :: on - [1] - uvicorn.error.startup(on.py:61): Application startup complete.
+2022-10-04 18:12:05 :: INFO :: server - [1] - uvicorn.error._log_started_message(server.py:207): Uvicorn running on http://0.0.0.0:5000 (Press CTRL+C to quit)
+2022-10-04 18:12:15 :: INFO :: base - [1] - sqlalchemy.engine.Engine._begin_impl(base.py:1027): BEGIN (implicit)
+2022-10-04 18:12:15 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): SELECT sample.id AS sample_id, sample.name AS sample_name 
+FROM sample ORDER BY sample.id
+2022-10-04 18:12:15 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [generated in 0.00441s] {}
+2022-10-04 18:12:15 :: INFO :: base - [1] - sqlalchemy.engine.Engine._rollback_impl(base.py:1055): ROLLBACK
+2022-10-04 18:21:56 :: INFO :: __init__ - [1] - sample-logger.create_app(__init__.py:30): logger connected!!
+2022-10-04 18:21:56 :: INFO :: server - [1] - uvicorn.error.serve(server.py:75): Started server process [1]
+2022-10-04 18:21:56 :: INFO :: on - [1] - uvicorn.error.startup(on.py:47): Waiting for application startup.
+2022-10-04 18:21:56 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): select pg_catalog.version()
+2022-10-04 18:21:56 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [raw sql] {}
+2022-10-04 18:21:56 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): select current_schema()
+2022-10-04 18:21:56 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [raw sql] {}
+2022-10-04 18:21:56 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): show standard_conforming_strings
+2022-10-04 18:21:56 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [raw sql] {}
+2022-10-04 18:21:56 :: INFO :: __init__ - [1] - sample-logger.__db_start(__init__.py:39): DB Connect!!
+2022-10-04 18:21:56 :: INFO :: on - [1] - uvicorn.error.startup(on.py:61): Application startup complete.
+2022-10-04 18:21:56 :: INFO :: server - [1] - uvicorn.error._log_started_message(server.py:207): Uvicorn running on http://0.0.0.0:5000 (Press CTRL+C to quit)
+2022-10-04 18:22:01 :: INFO :: base - [1] - sqlalchemy.engine.Engine._begin_impl(base.py:1027): BEGIN (implicit)
+2022-10-04 18:22:01 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1853): SELECT sample.id AS sample_id, sample.name AS sample_name 
+FROM sample ORDER BY sample.id
+2022-10-04 18:22:01 :: INFO :: base - [1] - sqlalchemy.engine.Engine._execute_context(base.py:1858): [generated in 0.00351s] {}
+2022-10-04 18:22:01 :: INFO :: base - [1] - sqlalchemy.engine.Engine._rollback_impl(base.py:1055): ROLLBACK

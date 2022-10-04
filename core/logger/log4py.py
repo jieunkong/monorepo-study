@@ -5,6 +5,9 @@ from teams_logger import Office365CardFormatter
 
 
 class Level:
+    """
+    로그의 심각 정도
+    """
     CRITICAL = logging.CRITICAL
     ERROR = logging.ERROR
     WARNING = logging.WARNING
@@ -16,7 +19,7 @@ class DefaultConfig(object):
     """
         logger.json 이 없을때 기본으로 사용
     """
-    version = 1
+    version = 1  
     disable_existing_loggers = False
     incremental = False
 

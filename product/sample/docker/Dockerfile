@@ -10,10 +10,8 @@ WORKDIR /app
 ENV LANG=ko_KR.utf8
 ENV TZ=Asia/Seoul
 ENV FASTAPI_ENV="docker" 
- # ?
 ENV FASTAPI_APP=main.py
 ENV APP_ENV="local"  
-# ?
 
 # FROM base as debug
 # Debug image reusing the base
