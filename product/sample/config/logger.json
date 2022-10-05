@@ -3,10 +3,25 @@
         "file": {
             "class": "logging.FileHandler",
             "filename": "run.log"
+        },
+        "rotating_time": {
+            "class": "logging.handlers.TimedRotatingFileHandler",
+            "filename": "/logs/pmw-api-stout.log",
+            "when": "midnight",
+            "backupCount": 30,
+            "encoding": "UTF-8",
+            "level": "DEBUG"
+        }
+    },
+    "loggers": {
+        "sqlalchemy.engine": {
+            "handlers": ["rotating_time"],
+            "level": "DEBUG",
+            "propagate": "False"
         }
     },
     "root": {
         "handlers": ["file"],
-        "level": "INFO" 
+        "level": "INFO"
     }
 }

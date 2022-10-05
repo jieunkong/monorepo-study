@@ -26,7 +26,6 @@ def create_app():
 
     # logger setting
     logger = create_logger(app_pwd, app_name, "logger.json")
-    #logger = Logger.get_logger(app_name + "-logger") 
     logger.info("logger connected!!")
     
     # Init DB
@@ -63,6 +62,7 @@ def create_logger(app_path: Path, app_name: str, logger_set_json: str):
         config = json.load(f)
 
     Logger.configure(**config)
+    
 
     return Logger.get_logger(app_name + "-logger")
 
