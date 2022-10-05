@@ -1,14 +1,17 @@
 FROM python:3.9.6
 
 COPY requirements.txt /install/requirements.txt 
- # /install 로 옮기는 이유가 있나?
+ # 질문. /install 로 옮기는 이유가 있나?
 RUN python -m pip install --upgrade pip
 RUN pip install -r /install/requirements.txt
+RUN mkdir -p /logs
 
-WORKDIR /app
+# WORKDIR /app  # 질문. docker-compose에도 선언되어있던데, 중복으로 해줄 필요가 있나?
 
 ENV LANG=ko_KR.utf8
-ENV TZ=Asia/Seoul
+# ENV TZ=Asia/Seoul
+
+# 아래 값 질문 필요
 ENV FASTAPI_ENV="docker" 
 ENV FASTAPI_APP=main.py
 ENV APP_ENV="local"  

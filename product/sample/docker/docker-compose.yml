@@ -4,7 +4,6 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
       args:
         - APP_PORT=${APP_PORT}
     image: vuno/${DOCKER_NAME}:${VERSION}
@@ -18,27 +17,25 @@ services:
       - ../../../common:/app/common
     command: python main.py
     env_file: ${PWD}/.env
-    environment:
-      - TZ=Asia/Seoul
     networks:
      - sample_default
     depends_on:
       db:
-        condition: service_healthy  # healthcheck
-    stdin_open: true  # docker run -i (interactive)
-    tty: true  # docker run -t (tty)
+        condition: service_healthy  
+    #stdin_open: true  # docker run -i (interactive)
+    #tty: true  # docker run -t (tty)
 
   db:
     image: postgres:12.9
     container_name: ${DOCKER_NAME}-db
-    restart: always
+    restart: on-failure  # `no`: 수동 재시작, `always`: 항상 재시작, `on-failure`: 오류가 있을시에 재시작
     environment:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PWD}
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
-      interval: 10s
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]  # pg_isready를 이용해 해당 데이터베이스가 사용가능한지 확인
+      interval: 10s  # 기본은 30초
     ports:
       - 5434:5432
     volumes:
